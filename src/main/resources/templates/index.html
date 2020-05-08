@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>FACE DETEKTOR</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+</head>
+<body>
+
+<section class="my-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <h2>Wgraj zdjecie</h2>
+                <p>Płeć</p>
+                <p th:text="${gender}" th:if="${gender ne null}" class="alert alert-primary"></p>
+                <p>Wiek</p>
+                <p th:text="${age}" th:if="${age ne null}" class="alert alert-primary"></p>
+                <p>Kolor włosów</p>
+                <p th:text="${hair}" th:if="${hair ne null}" class="alert alert-primary"></p>
+                <p>Uśmiech</p>
+                <p th:text="${smile}" th:if="${smile ne null}" class="alert alert-primary"></p>
+                <p>Emocje</p>
+                <p th:text="${emotion}" th:if="${emotion ne null}"class="alert alert-primary"></p>
+                <form method="post" th:action="@{/face}" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="file" name="file" class="form-control-file">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload File</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>
